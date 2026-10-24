@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100b18">
+  <title>LackyFlix | Anime, Filmes e Séries</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #100b18;
+      color: white;
+    }
+    header {
+      padding: 20px 16px;
+      background: #1c1129;
+      border-bottom: 2px solid #a855f7;
+    }
+    .logo { font-size: 27px; font-weight: bold; color: #c084fc; }
+    .logo span { color: white; }
+    header p { color: #c8b8d8; margin-bottom: 0; }
+    main { padding: 18px 14px; }
+    input, select {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 12px;
+      border: 1px solid #62417c;
+      border-radius: 8px;
+      background: #21152e;
+      color: white;
+      font-size: 16px;
+    }
+    h2 { margin-top: 24px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .card {
+      background: #21152e;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #39264b;
+    }
+    .poster {
+      height: 115px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #512078, #171020);
+      font-size: 40px;
+    }
+    .info { padding: 11px; }
+    .info h3 { margin: 0 0 8px; font-size: 16px; }
+    .tag { color: #d8b4fe; font-size: 12px; }
+    .info p { color: #c9bdcf; font-size: 13px; line-height: 1.4; }
+    .link {
+      display: inline-block;
+      background: #9333ea;
+      color: white;
+      padding: 9px 11px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .empty { display: none; color: #d8b4fe; }
+    footer {
+      text-align: center;
+      padding: 25px 12px;
+      color: #b5a5c4;
+      font-size: 13px;
+    }
+    @media (min-width: 650px) {
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      main { max-width: 900px; margin: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Lacky<span>Flix</span> 🎬</div>
+    <p>O teu universo de anime, filmes e séries.</p>
+  </header>
+
+  <main>
+    <input id="search" type="search" placeholder="🔎 Procurar um título...">
+    <select id="category">
+      <option value="todos">Todas as categorias</option>
+      <option value="anime">Anime</option>
+      <option value="filme">Filmes</option>
+      <option value="serie">Séries</option>
+    </select>
+
+    <h2>Explora os conteúdos</h2>
+    <div class="grid" id="catalog">
+      <article class="card" data-category="anime">
+        <div class="poster">🍥</div>
+        <div class="info">
+          <h3>Naruto</h3>
+          <span class="tag">Anime · Ação</span>
+          <p>Um jovem ninja luta para realizar o seu sonho.</p>
+          <a class="link" href="https://www.crunchyroll.com/" target="_blank" rel="noopener">Ver plataforma</a>
+        </div>
+      </article>
+
+      <article class="card" data-category="anime">
+        <div class="poster">🐉</div>
+        <div class="info">
+          <h3>Dragon Ball</h3>
+          <span class="tag">Anime · Aventura</span>
+          <p>Aventura, combates e guerreiros poderosos.</p>
+          <a class="link" href="https://www.crunchyroll.com/" target="_blank" rel="noopener">Ver plataforma</a>
+        </div>
+      </article>
+
+      <article class="card" data-category="anime">
+        <div class="poster">⚔️</div>
+        <div class="info">
+          <h3>Demon Slayer</h3>
+          <span class="tag">Anime · Fantasia</span>
+          <p>Uma jornada de coragem para salvar a família.</p>
+          <a class="link" href="https://www.crunchyroll.com/" target="_blank" rel="noopener">Ver plataforma</a>
+        </div>
+      </article>
+
+      <article class="card" data-category="filme">
+        <div class="poster">🎥</div>
+        <div class="info">
+          <h3>Filmes em destaque</h3>
+          <span class="tag">Filmes</span>
+          <p>Descobre filmes e procura opções oficiais para assistir.</p>
+          <a class="link" href="https://www.netflix.com/" target="_blank" rel="noopener">Explorar filmes</a>
+        </div>
+      </article>
+
+      <article class="card" data-category="serie">
+        <div class="poster">📺</div>
+        <div class="info">
+          <h3>Séries em destaque</h3>
+          <span class="tag">Séries</span>
+          <p>Encontra séries para adicionar à tua lista.</p>
+          <a class="link" href="https://www.netflix.com/" target="_blank" rel="noopener">Explorar séries</a>
+        </div>
+      </article>
+
+      <article class="card" data-category="anime">
+        <div class="poster">🏴‍☠️</div>
+        <div class="info">
+          <h3>One Piece</h3>
+          <span class="tag">Anime · Aventura</span>
+          <p>Uma tripulação parte em busca de um grande tesouro.</p>
+          <a class="link" href="https://www.crunchyroll.com/" target="_blank" rel="noopener">Ver plataforma</a>
+        </div>
+      </article>
+    </div>
+    <p class="empty" id="empty">Nenhum título encontrado.</p>
+  </main>
+
+  <footer>
+    <p>© 2026 LackyFlix · Descobre o teu próximo favorito.</p>
+    <p>Disponibilidade dos conteúdos depende das plataformas oficiais.</p>
+  </footer>
+
+  <script>
+    const search = document.getElementById('search');
+    const category = document.getElementById('category');
+    const cards = document.querySelectorAll('.card');
+    const empty = document.getElementById('empty');
+
+    function filterCards() {
+      const term = search.value.toLowerCase().trim();
+      let count = 0;
+
+      cards.forEach(card => {
+        const matchesText = card.innerText.toLowerCase().includes(term);
+        const matchesCategory =
+          category.value === 'todos' ||
+          card.dataset.category === category.value;
+        const show = matchesText && matchesCategory;
+
+        card.style.display = show ? '' : 'none';
+        if (show) count++;
+      });
+
+      empty.style.display = count ? 'none' : 'block';
+    }
+
+    search.addEventListener('input', filterCards);
+    category.addEventListener('change', filterCards);
+  </script>
+</body>
+</html>
