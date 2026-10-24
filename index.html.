@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LackyFlix</title>
+<style>
+body{margin:0;background:#0b0b12;color:white;font-family:Arial,sans-serif}
+header{background:#171722;padding:20px;text-align:center}
+h1{color:#ff3158;margin:0}
+input{padding:12px;width:80%;max-width:400px;border-radius:10px;border:0}
+nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:15px}
+button{padding:10px 15px;border:0;border-radius:8px;background:#ff3158;color:white;font-weight:bold}
+main{padding:20px;max-width:900px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px}
+.card{background:#191925;border-radius:12px;overflow:hidden;padding-bottom:14px}
+.poster{height:130px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#522044,#25254b);font-size:28px;font-weight:bold}
+.card h3,.card p,.card a{margin:12px}
+.card p{color:#c4c4d0;font-size:14px}
+a{color:#ff8098}
+.ad{margin:20px 0;padding:20px;text-align:center;border:1px dashed #777;border-radius:10px;color:#aaa}
+footer{text-align:center;color:#aaa;padding:25px}
+</style>
+</head>
+<body>
+<header>
+<h1>LackyFlix</h1>
+<p>Anime • Séries • Filmes</p>
+<input id="search" placeholder="Pesquisar títulos..." oninput="filterCards()">
+</header>
+<nav>
+<button onclick="filterCategory('Todos')">Todos</button>
+<button onclick="filterCategory('Anime')">Anime</button>
+<button onclick="filterCategory('Série')">Séries</button>
+<button onclick="filterCategory('Filme')">Filmes</button>
+</nav>
+<main>
+<h2>Explorar catálogo</h2>
+<div class="ad">
+<strong>PUBLICIDADE</strong>
+<p>Espaço reservado para anúncios após aprovação.</p>
+</div>
+<div class="grid" id="catalog">
+<div class="card" data-category="Anime">
+<div class="poster">アニメ</div>
+<h3>Anime de aventura</h3>
+<p>Descobre histórias de aventura e ação.</p>
+<a href="https://www.crunchyroll.com/" target="_blank">Ver opções oficiais</a>
+</div>
+<div class="card" data-category="Anime">
+<div class="poster">影</div>
+<h3>Anime de ação</h3>
+<p>Heróis, desafios e grandes batalhas.</p>
+<a href="https://www.crunchyroll.com/" target="_blank">Ver opções oficiais</a>
+</div>
+<div class="card" data-category="Série">
+<div class="poster">SÉRIE</div>
+<h3>Série de mistério</h3>
+<p>Histórias cheias de suspense.</p>
+<a href="https://www.netflix.com/" target="_blank">Visitar plataforma</a>
+</div>
+<div class="card" data-category="Filme">
+<div class="poster">FILME</div>
+<h3>Filme de aventura</h3>
+<p>Explora novas histórias e mundos.</p>
+<a href="https://www.justwatch.com/" target="_blank">Encontrar onde ver</a>
+</div>
+</div>
+</main>
+<footer>
+© 2026 LackyFlix
+<p>Catálogo demonstrativo com links para plataformas oficiais.</p>
+</footer>
+<script>
+let category='Todos';
+function filterCategory(c){category=c;filterCards();}
+function filterCards(){
+let q=document.getElementById('search').value.toLowerCase();
+document.querySelectorAll('.card').forEach(card=>{
+let okCategory=category==='Todos'||card.dataset.category===category;
+let okText=card.innerText.toLowerCase().includes(q);
+card.style.display=okCategory&&okText?'block':'none';
+});
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LackyFlix</title>
+<style>
+body{margin:0;background:#0b0b12;color:white;font-family:Arial,sans-serif}
+header{background:#171722;padding:20px;text-align:center}
+h1{color:#ff3158;margin:0}
+input{padding:12px;width:80%;max-width:400px;border-radius:10px;border:0}
+nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:15px}
+button{padding:10px 15px;border:0;border-radius:8px;background:#ff3158;color:white;font-weight:bold}
+main{padding:20px;max-width:900px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px}
+.card{background:#191925;border-radius:12px;overflow:hidden;padding-bottom:14px}
+.poster{height:130px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#522044,#25254b);font-size:28px;font-weight:bold}
+.card h3,.card p,.card a{margin:12px}
+.card p{color:#c4c4d0;font-size:14px}
+a{color:#ff8098}
+.ad{margin:20px 0;padding:20px;text-align:center;border:1px dashed #777;border-radius:10px;color:#aaa}
+footer{text-align:center;color:#aaa;padding:25px}
+</style>
+</head>
+<body>
+<header>
+<h1>LackyFlix</h1>
+<p>Anime • Séries • Filmes</p>
+<input id="search" placeholder="Pesquisar títulos..." oninput="filterCards()">
+</header>
+<nav>
+<button onclick="filterCategory('Todos')">Todos</button>
+<button onclick="filterCategory('Anime')">Anime</button>
+<button onclick="filterCategory('Série')">Séries</button>
+<button onclick="filterCategory('Filme')">Filmes</button>
+</nav>
+<main>
+<h2>Explorar catálogo</h2>
+<div class="ad">
+<strong>PUBLICIDADE</strong>
+<p>Espaço reservado para anúncios após aprovação.</p>
+</div>
+<div class="grid" id="catalog">
+<div class="card" data-category="Anime">
+<div class="poster">アニメ</div>
+<h3>Anime de aventura</h3>
+<p>Descobre histórias de aventura e ação.</p>
+<a href="https://www.crunchyroll.com/" target="_blank">Ver opções oficiais</a>
+</div>
+<div class="card" data-category="Anime">
+<div class="poster">影</div>
+<h3>Anime de ação</h3>
+<p>Heróis, desafios e grandes batalhas.</p>
+<a href="https://www.crunchyroll.com/" target="_blank">Ver opções oficiais</a>
+</div>
+<div class="card" data-category="Série">
+<div class="poster">SÉRIE</div>
+<h3>Série de mistério</h3>
+<p>Histórias cheias de suspense.</p>
+<a href="https://www.netflix.com/" target="_blank">Visitar plataforma</a>
+</div>
+<div class="card" data-category="Filme">
+<div class="poster">FILME</div>
+<h3>Filme de aventura</h3>
+<p>Explora novas histórias e mundos.</p>
+<a href="https://www.justwatch.com/" target="_blank">Encontrar onde ver</a>
+</div>
+</div>
+</main>
+<footer>
+© 2026 LackyFlix
+<p>Catálogo demonstrativo com links para plataformas oficiais.</p>
+</footer>
+<script>
+let category='Todos';
+function filterCategory(c){category=c;filterCards();}
+function filterCards(){
+let q=document.getElementById('search').value.toLowerCase();
+document.querySelectorAll('.card').forEach(card=>{
+let okCategory=category==='Todos'||card.dataset.category===category;
+let okText=card.innerText.toLowerCase().includes(q);
+card.style.display=okCategory&&okText?'block':'none';
+});
+}
+</script>
+</body>
+</html>
